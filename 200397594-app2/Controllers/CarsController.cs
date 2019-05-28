@@ -25,5 +25,18 @@ namespace _200397594_app2.Controllers
 
 
         }
+
+        //GET : CARS/DETAILS - SINGLE CAR
+        public ActionResult Details(int? id)
+        {
+            if(id == null || id > carList.Count )
+            {
+                return Content("Invalid car id");
+            }
+            var ind = Convert.ToInt32(id) - 1;
+            var car = carList[ind];
+
+            return View(car);
+        }
     }
 }
